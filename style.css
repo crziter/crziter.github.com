@@ -163,6 +163,7 @@ article section {
 
 article section p {
 	margin: 10px 0px;
+	padding: 0px;
 }
 
 article section ul {
@@ -176,13 +177,31 @@ article section li {
 }
 
 article footer {
-	margin: 0px 0px 20px 40px;
+	margin: 0px 10px 20px 40px;
 	padding: 0px;
+	text-align: left;
+}
+
+article footer a {
+	text-decoration: none;
+	color: blue;
+}
+
+article footer a:hover {
+	text-decoration: none;
+	color: orange;
+}
+
+#pages-bar {
+	min-height: 30px;
+	width: 100%;
+	background-color: green;
 }
 
 footer {
 	margin: 0px 50px;
 	background-color: white;
+	text-align: center;
 }
 
 footer #generated {
