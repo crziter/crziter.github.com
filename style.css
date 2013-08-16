@@ -125,7 +125,7 @@ section #crziter-name {
 
 article header {
 	min-height: 40px;
-	position: static;
+	position: relative;
 	background-color: rgb(250, 250, 250);
 	background-image: none;
 	box-shadow: none;
@@ -157,8 +157,18 @@ article header {
 	color: black;
 }
 
+.author {
+	position: absolute;
+	margin-top: 40px;
+	margin-left: 10px;
+	min-height: 50px;
+	width: 70px;
+	background-color: green;
+	line-height: 50px;
+}
+
 article section {
-	margin: 10px 10px 10px 40px;
+	margin: 10px 10px 10px 120px;
 	padding: 0px;
 }
 
@@ -178,7 +188,7 @@ article section li {
 }
 
 article footer {
-	margin: 0px 10px 20px 40px;
+	margin: 0px 10px 20px 120px;
 	padding: 0px;
 	text-align: left;
 }
@@ -194,9 +204,20 @@ article footer a:hover {
 }
 
 #pages-bar {
-	min-height: 30px;
-	width: 100%;
-	background-color: green;
+	height: 40px;
+	/* width: 100%; 
+	background-color: green; */
+	text-align: center;
+	line-height: 30px; 
+	margin: 0px 10px;
+}
+
+#pages-bar span {
+	/* border-left-color: black; */
+	padding: 5px 10px;
+	background-color: rgb(230, 230, 230);
+	border: 1px solid black;
+	color: rgb(153, 153, 153);
 }
 
 footer {
