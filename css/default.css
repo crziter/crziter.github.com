@@ -35,17 +35,30 @@
 #crziter-text {
 	float: left;
 	margin-top: 30px;
-	/* text-align: center; */
-	width: 50%;
-	background-color: green;
+	width: 350px;
 }
 
 #crziter-name {
 	font-family: 'Kavoon';
 	font-size: 3em;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.crziter-prop {
+	font-weight: bold;
+	clear: both;
+}
+
+.crziter-val {
+	float: right;
 }
 
 /* REAL CONTENT */
+#content-wrapper {
+	padding: 10px 10px 10px 50px;
+	margin: 0px;
+}
 
 .content-article {
 	background-color: green;
