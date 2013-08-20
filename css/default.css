@@ -43,3 +43,9 @@
 	font-family: 'Kavoon';
 	font-size: 3em;
 }
+
+/* REAL CONTENT */
+
+.content-article {
+	background-color: green;
+}
