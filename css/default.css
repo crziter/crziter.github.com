@@ -35,8 +35,9 @@
 #crziter-text {
 	float: left;
 	margin-top: 30px;
-	text-align: center;
+	/* text-align: center; */
 	width: 50%;
+	background-color: green;
 }
 
 #crziter-name {
