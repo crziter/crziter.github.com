@@ -17,22 +17,11 @@
 	margin-bottom: 20px;
 }
 
-#cat-eye {
-	display: none;
-}
-
 #crziter-eye {
 	float: left;
 	width: 350px;
 	height: 350px;
 	position: relative;
-	/* width: 350px;
-	height: 350px; */
-
-	/* position: absolute;
-	left: 171px;
-	top: 24px;
-	background-color: white; */
 }
 
 #crziter-bk {
@@ -41,12 +30,6 @@
 
 #crziter-anime {
 	position: absolute;
-}
-
-#crziter-avatar {
-	display: none;
-	/* float: left;
-	width: 50%;  */
 }
 
 #crziter-text {
