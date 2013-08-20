@@ -1,4 +1,6 @@
-var eye_canvas;
+var eye_canvas_bk;
+var eye_canvas_ani;
+
 var eye_ctx;
 var eye_no_eye_image;
 var eye_eye_image;
@@ -12,24 +14,34 @@ var rex1;
 var rey1;
 var rex2;
 var rey2;
+var data;
+var bod;
 
 function eye_init() {
-	eye_canvas = document.getElementById('crziter-eye');
-	eye_ctx = eye_canvas.getContext('2d');
+	bod = document.body;
+	eye_canvas_bk = document.getElementById('crziter-bk');
+	eye_canvas_ani = document.getElementById('crziter-anime');
+	eye_ctx = eye_canvas_ani.getContext('2d');
 
-	eye_no_eye_image = document.getElementById('crziter-avatar');
-	eye_eye_image = document.getElementById('cat-eye');
+	eye_no_eye_image = new Image();// document.getElementById('crziter-avatar');
+	eye_no_eye_image.src = '/images/avatar_noeye.png';
 
-	//eye_no_eye_image.onload = function() {
-		eye_ctx.drawImage(eye_no_eye_image, 
+	eye_eye_image = new Image();// document.getElementById('cat-eye');
+	eye_eye_image.src = '/images/eye.png';
+
+	eye_no_eye_image.onload = function() {
+		eye_canvas_bk.getContext('2d').drawImage(eye_no_eye_image, 
 			0, 0, 
-			eye_no_eye_image.width, eye_no_eye_image.height,
+			350, 350,
 			0, 0, 
-			eye_canvas.width, eye_canvas.height
+			350, 350
 		);
-	//}
 
-	//eye_eye_image.onload = function() {
+		var pixels = eye_canvas_bk.getContext('2d').getImageData(0, 0, 350, 350);	
+		data = pixels.data;
+	}
+
+	eye_eye_image.onload = function() {
 		eye_ctx.drawImage(eye_eye_image, eye_x1, eye_y1);
 		eye_ctx.drawImage(eye_eye_image, eye_x2, eye_y2);
 
@@ -40,7 +52,7 @@ function eye_init() {
 		rey1 = eye_y1 + eye_height_d2;
 		rex2 = eye_x2 + eye_width_d2;
 		rey2 = eye_y2 + eye_height_d2;
-	//}
+	}
 
 
 	 document.onmousemove = eye_move;
@@ -56,25 +68,15 @@ function eye_move(e) {
 	H: 51
 	*/
 
-	var doc = document;
-	var bod = doc.body;
 	var mouseX = e.clientX + bod.scrollLeft;
 	var mouseY = e.clientY + bod.scrollTop;
 
-	eye_ctx.clearRect(161, 16, 76, 51);
-	eye_ctx.drawImage(eye_no_eye_image, 
-	 	182, 18, 
-	 	86, 58,
-	 	161, 16, 
-	 	76, 51
-	 );
 
-	var bounding = eye_canvas.getBoundingClientRect();
+	eye_ctx.clearRect(161, 16, 76, 51);
+
+	var bounding = eye_canvas_ani.getBoundingClientRect();
 	var mx = mouseX - bounding.left;
 	var my = mouseY - bounding.top;
-
-	var pixels = eye_ctx.getImageData(0, 0, eye_canvas.width, eye_canvas.height);	
-	var data = pixels.data;
 
 	var abs = Math.abs;
 	var max1 = abs(rex1-mx) > abs(rey1-my) ? abs(rex1-mx) : abs(rey1-my);
@@ -117,7 +119,6 @@ function eye_move(e) {
 		if (t2 == false) {
 			if (data[element2 + 3] > 100) {
 				t2 = true;
-				//console.log('t2 is true at i=' + i);
 			} else {
 				y2 = y2 + rsy2;
 				x2 = x2 + rsx2;
@@ -135,14 +136,7 @@ function eye_move(e) {
 }
 
 function eye_out() {
-	eye_ctx.clearRect(0, 0, eye_canvas.width, eye_canvas.height);
-	eye_ctx.drawImage(eye_no_eye_image, 
-		0, 0, 
-		eye_no_eye_image.width, eye_no_eye_image.height,
-		0, 0, 
-		eye_canvas.width, eye_canvas.height
-	);
-
+	eye_ctx.clearRect(161, 16, 76, 51);
 	eye_ctx.drawImage(eye_eye_image, eye_x1, eye_y1);
 	eye_ctx.drawImage(eye_eye_image, eye_x2, eye_y2);
 }
