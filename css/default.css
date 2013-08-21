@@ -54,32 +54,56 @@
 	float: right;
 }
 
+.crziter-val a {
+	text-decoration: none;
+	color: black;
+}
+
+.crziter-val a:hover {
+	color: rgb(153,153,153);
+}
+
 /* REAL CONTENT */
 #content-wrapper {
-	padding: 0px 0px 10px 0px;
-	margin: 0px;
+	padding-bottom: 10px;
+	margin: 0px 10px 0px 50px;
 }
 
 .content-article {
+	padding-bottom: 5px;
 }
 
 .artice-title {
-	/* background-color: rgb(200, 200, 200); */
-	height: 30px;
-	line-height: 30px;
-	padding-left: 20px;
-	/* border-radius: 10px; */
 	font-weight: bold;
-	font-size: 1.3em;
+	font-size: 1em;
+	line-height: 30px;
+}
+
+.artice-title a {
+	text-decoration: none;
+	color: black;
+}
+
+.artice-title a:hover {
+	color: rgb(153, 153, 153);
 }
 
 .content-section {
-	margin: 0px;
-	padding: 0px 10px 0px 40px;
+	overflow: auto;
 }
 
-.content-section ul {
-	padding-left: 0px;
+.content-img {
+	width: 150px;
+	border: 1px solid black;
+	float: left;
+	margin-right: 10px;
+}
+
+.content-desc {
+	font-style: italic;
+	font-size: 0.9em;
+	text-align: justify;
+	text-indent: 30px;
 }
 
 .content-section a {
@@ -92,37 +116,14 @@
 	color: black;
 }
 
-.content-section a.continue-read {
-	color: blue;
-	display: block;
-	padding: 5px 0px;
-}
-
-.content-section a.continue-read:hover {
-	color: orange;
-}
-
-.content-section img {
-	max-width: 80%;
-	display: block;
-	margin: 0px auto;
-	padding: 5px;
-}
-
 .content-footer {
-	margin: 0px;
-	padding: 10px 10px 0px 40px;
-	font-style: italic;
-	color: rgb(153, 153, 153);
-	text-align: center;
 }
 
 .content-break {
-	width: 500px;
-	 border: 0; 
-	 height: 1px; 
-	 background-image: -webkit-linear-gradient(left, white, rgb(153,153,153), white); 
-	 background-image: -moz-linear-gradient(left, white, rgb(153,153,153), white); 
-	 background-image: -ms-linear-gradient(left, white, rgb(153,153,153), white); 
-	 background-image: -o-linear-gradient(left, white, rgb(153,153,153), white); 
+	border: 0; 
+	height: 1px; 
+	background-image: -webkit-linear-gradient(left, rgb(153,153,153), white); 
+	background-image: -moz-linear-gradient(left, rgb(153,153,153), white); 
+	background-image: -ms-linear-gradient(left, rgb(153,153,153), white); 
+	background-image: -o-linear-gradient(left, rgb(153,153,153), white); 
 }
