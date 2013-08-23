@@ -1,0 +1,109 @@
+#global-section ul{
+	margin-top: 10px;
+}
+
+#global-section li {
+	margin-left: 30px;
+}
+
+#global-section p {
+	margin-top: 10px;
+}
+
+#crziter-title {
+	position: relative;
+	width: 700px;
+	margin: 0px auto;
+	margin-bottom: 20px;
+}
+
+#crziter-eye {
+	float: left;
+	width: 350px;
+	height: 350px;
+	position: relative;
+}
+
+#crziter-bk {
+	position: absolute;
+}
+
+#crziter-anime {
+	position: absolute;
+}
+
+#crziter-text {
+	float: left;
+	margin-top: 30px;
+	width: 350px;
+}
+
+#crziter-name {
+	font-family: 'Kavoon';
+	font-size: 3em;
+	margin-bottom: 16px;
+	text-align: center;
+}
+
+.crziter-prop {
+	font-weight: bold;
+	clear: both;
+}
+
+.crziter-val {
+	float: right;
+}
+
+.crziter-val a {
+	text-decoration: none;
+	color: black;
+}
+
+.crziter-val a:hover {
+	color: rgb(153,153,153);
+}
+
+/* REAL CONTENT */
+#content-wrapper {
+	padding-bottom: 10px;
+	margin: 0px 50px;
+}
+
+#blog-introduce {
+	text-align: justify;
+	text-indent: 30px;
+	font-style: italic;
+}
+
+#blog-introduce hr {
+	border: 0; 
+	height: 1px; 
+	background-image: -webkit-linear-gradient(left, white, rgb(153,153,153), white); 
+	background-image: -moz-linear-gradient(left, white, rgb(153,153,153), white); 
+	background-image: -ms-linear-gradient(left, white, rgb(153,153,153), white); 
+	background-image: -o-linear-gradient(left, white, rgb(153,153,153), white); 
+}
+
+#recent-title {
+	margin-top: 10px;
+	font-weight: bold;
+	color: black;
+}
+
+#recent-posts p {
+	margin-top: 5px;
+	margin-bottom: 0px;
+}
+
+#recent-posts a {
+	text-decoration: none;
+	color: rgb(153, 153, 153);
+}
+
+#recent-posts a:hover {
+	color: black;
+}
+
+#recent-posts a:visited {
+	color: violet;
+}
