@@ -1,0 +1,35 @@
+#global-section {
+	padding-bottom: 10px;
+}
+
+#da-wrapper {
+	margin: 0px 10px 0px 50px;
+}
+
+.da-caption {
+	font-weight: bold;
+	padding-top: 10px;
+}
+
+#du-an {
+	margin-left: 30px;
+	padding-top: 5px;
+}
+
+#du-an p {
+	padding: 0px;
+	margin: 0px;
+}
+
+a {
+	text-decoration: none;
+	color: rgb(153, 153, 153);
+}
+
+a:hover {
+	color: black;
+}
+
+a:visited {
+	color: violet;
+}
