@@ -145,3 +145,7 @@ body {
 	font-size: 0.95em;
 	color: gray;
 }
+
+#disqus_thread {
+	margin: 0px 30px 0px 50px;
+}
