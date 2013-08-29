@@ -1,0 +1,31 @@
+#global-section {
+	padding-bottom: 10px;
+}
+
+#blog-wrapper {
+	margin: 10px 50px;
+	padding: 0px;
+}
+
+#blog-caption {
+	font-weight: bold;
+}
+
+.blog-link {
+	margin: 0px;
+	padding-top: 5px;
+	padding-left: 20px;
+}
+
+.blog-link a {
+	text-decoration: none;
+	color: rgb(153, 153, 153);
+}
+
+.blog-link a:hover {
+	color: black;
+}
+
+.blog-link a:visited {
+	color: violet;
+}
