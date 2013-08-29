@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>
+crziter's blog - Phần mềm lên dây đàn trên GNU/Linux
+</title>
+<link href='/css/common.css' media='screen' rel='stylesheet' type='text/css'>
+<link href='/css/post.css' media='screen' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header id='global-header'>
+<div id='logo'>
+<img alt='Avatar' id='logo-image' src='/images/avatar_small.png'>
+<span id='logo-name'>Crziter</span>
+<div id='clear-both'></div>
+</div>
+<div id='nav-menu'>
+<ul>
+<li>
+<a href='/'>Trang chủ</a>
+</li>
+<li>
+<a href='/blog'>Blog</a>
+</li>
+<li>
+<a href='/chuyen-muc'>Chuyên mục</a>
+</li>
+<li>
+<a href='/du-an'>Dự án</a>
+</li>
+</ul>
+</div>
+</header>
+<div id='global-ctx'>
+<section id='global-section'>
+<div id='post-wrapper'>
+<h1>
+Phần mềm lên dây đàn trên GNU/Linux
+</h1>
+<div id='post-info'>
+<span class='date'>
+Đăng ngày:
+</span>
+2013-08-29
+<span class='date'>
+lúc:
+</span>
+17:42:50
+.
+<span class='cat'>
+Mục:
+</span>
+<a href="/chuyen-muc/GNU/linux">GNU/linux</a>
+</div>
+<div id='post-content'>
+<p>
+  <i>Chiều nay, sau một hồi phân vân tự hỏi liệu có phần mềm lên dây đàn nào cho hệ thống GNU/Linux không thì đến hỏi ông Google, ông ấy suy nghĩ một lúc rồi đưa ra danh sách một đống các phần mềm có tính năng đó, rồi ông ta còn recommended cái phần mềm có tên là lingot...</i>
+</p>
+<div class='img-wrap'>
+  <div class='image-center'>
+    <img src='/images/posts/lingot.png'>
+    <span class='image-caption'>Giao diện của lingot</span>
+  </div>
+</div>
+<h2>Cài đặt</h2>
+<p>
+  Không biết trên các bản phân phối GNU/Linux khác như thế nào nhưng với Archlinux thì lingot không có trong kho phần mềm chính thức mà chỉ có trong kho phần mềm của người sử dụng. Để cài đặt, cần download gói đó về ở địa chỉ:
+  <a href='https://aur.archlinux.org/packages/li/lingot/lingot.tar.gz'>https://aur.archlinux.org/packages/li/lingot/lingot.tar.gz</a>
+  , sau đó giải nén ra và mở terminal lên, vào thư mục lingot vừa giải nén xong rồi gõ lệnh:
+</p>
+<div class='bash-command'>
+  <pre>makepkg -s -i</pre>
+</div>
+<p>Ngồi đợi một lát để chương trình tự download các gói cần thiết và mã nguồn của phần mềm về, biên dịch và cài đặt vào hệ thống. Kết thúc thì chương trình có thể sẽ hiện diện ở:</p>
+<p>
+  <strong>Menu</strong>
+  ->
+  <strong>Multimedia</strong>
+  ->
+  <strong>Lingot</strong>
+</p>
+<h2>Cảm nhận</h2>
+<p>Xài rất tốt, đến giờ phút hiện tại thì chưa có vấn đề gì xảy ra cả :-D.</p>
+
+</div>
+</div>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+var disqus_shortname = 'crziter';
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+</section>
+<footer id='global-footer'>
+<div id='footer-content'>
+<p id='copyright'>
+Designed 2013 by
+<a href=''>crziter</a>
+</p>
+<p id='generate'>
+(generated on 29/08/2013 - 18:51 +0700 UTC)
+</p>
+</div>
+</footer>
+</div>
+</body>
+</html>

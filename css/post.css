@@ -44,3 +44,29 @@
 	margin-bottom: 5px;
 	text-indent: 0px;
 }
+
+.img-wrap {
+	text-align: center;
+}
+
+.image-center {
+	display: inline-block;
+	margin: 0px auto;
+	padding: 0px auto;
+}
+
+.image-caption {
+	display: block;
+	margin: 0px auto;
+	text-align: center;
+}
+
+.bash-command {
+	font-family: "Courier New",Courier,monospace;
+	background-color: rgb(240,240,240);
+	border-radius: 5px;
+}
+
+.bash-command pre {
+	font-family: inherit;
+}
