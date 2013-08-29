@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+<meta charset='utf-8'>
+<title>
+crziter's blog - Hướng dẫn sử dụng disqus cho phần comment
+</title>
+<link href='/css/common.css' media='screen' rel='stylesheet' type='text/css'>
+<link href='/css/post.css' media='screen' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<header id='global-header'>
+<div id='logo'>
+<img alt='Avatar' id='logo-image' src='/images/avatar_small.png'>
+<span id='logo-name'>Crziter</span>
+<div id='clear-both'></div>
+</div>
+<div id='nav-menu'>
+<ul>
+<li>
+<a href='/'>Trang chủ</a>
+</li>
+<li>
+<a href='/blog'>Blog</a>
+</li>
+<li>
+<a href='/chuyen-muc'>Chuyên mục</a>
+</li>
+<li>
+<a href='/du-an'>Dự án</a>
+</li>
+</ul>
+</div>
+</header>
+<div id='global-ctx'>
+<section id='global-section'>
+<div id='post-wrapper'>
+<h1>
+Hướng dẫn sử dụng disqus cho phần comment
+</h1>
+<div id='post-info'>
+<span class='date'>
+Đăng ngày:
+</span>
+2013-08-29
+<span class='date'>
+lúc:
+</span>
+16:55:53
+.
+<span class='cat'>
+Mục:
+</span>
+<a href="/chuyen-muc/disqus">disqus</a>, <a href="/chuyen-muc/web">web</a>
+</div>
+<div id='post-content'>
+<p>
+  <i>Một trang web muốn thu hút người đọc hoặc muốn thêm sinh động thì việc quan trọng là không thể thiếu phần bình luận, trong các CMS như wordpress,... công việc tạo và quản lí comment đã được tích hợp sẵn. Nhưng với các trang web mà tự viết từ đầu hoặc là trang web tĩnh như trang này thì có thể tiết kiệm thời gian hoặc xử lí được công việc bình luận bài viết bằng một sản phẩm từ hãng thứ ba là disqus</i>
+</p>
+<h2>Bắt đầu như thế nào?</h2>
+<p>Giả sử bạn đã có một trang web, cần thêm phần bình luận và đang ở một trong các tình huống: không có điều kiện làm (webserver không hỗ trợ ngôn ngữ web nào, không có thời gian, etc) hoặc làm biếng.</p>
+<p>
+  Đầu tiên, vào trang web
+  <a href='http://disqus.com'>http://disqus.com</a>
+  bấm vào nút "Add Disqus to Your Site" để đăng kí một tài khoản. Điền đầy đủ các thông tin mà trang web yêu cầu rồi bấm "Continue". Ở màn hình tiếp theo là để chọn nền tảng web mà bạn đang có, việc chọn này sẽ giúp cho việc quản lí dễ dàng hơn, vì vậy chọn nền tảng web mà bạn muốn đưa comment vào hoặc "Universal Code" nếu là trang tự viết hoặc không có nền tảng nào đúng cả. Sau đó, chính trang disqus cũng đưa ra những hướng dẫn để làm những việc tiếp theo...
+</p>
+<h2>Lắp phần comment vào</h2>
+<p>Như phần hướng dẫn khá chi tiết, chỉ cần copy đoạn code bạn thấy vào chổ cần comment xuất hiện là xong.</p>
+<h2>Quản lí các tính năng và comment</h2>
+<p>
+  Disqus cung cấp một giao diện khá đồ sộ cho việc quản lí các tính năng và comment, chỉ cần đăng nhập vào trang
+  <strong>username.disqus.com</strong>
+  bạn có thể tùy chỉnh giao diện, ngôn ngữ, hiển thị của phần comment và quản lí các comment của người đọc.
+</p>
+<p>Tới đây, về cơ bản thì một bộ comment đã được tích hợp vào trang web mà không phải tốn nhiều công sức.</p>
+<h2>Một số tùy chỉnh có thể dùng tới</h2>
+<p>Có thể có một số tính năng của disqus mà bạn thấy phiền hà hoặc là không cần dùng tới, khi đó cần đăng nhập vào trang quản lí và:</p>
+<ul>
+  <li>
+    <strong>Bỏ phần liệt kê các bài viết:</strong>
+    <p>
+      Vào
+      <strong>Settings</strong>
+      ->
+      <strong>Discovery</strong>
+      ở chổ
+      <strong>Choose your Discovery level</strong>
+      chọn
+      <strong>Just comments</strong>
+    </p>
+  </li>
+  <li>
+    <strong>Chọn ngôn ngữ Tiếng Việt:</strong>
+    <p>
+      Vào
+      <strong>Settings</strong>
+      ->
+      <strong>General</strong>
+      ở chổ
+      <strong>Language</strong>
+      chọn
+      <strong>Vietnamese</strong>
+    </p>
+  </li>
+  <li>
+    <strong>Cho phép người dùng comment mà khỏi đăng nhập:</strong>
+    <p>
+      Cũng ở trong
+      <strong>General</strong>
+      mục
+      <strong>Guest Commenting</strong>
+      đánh dấu tick vào
+      <strong>Allow guests to comment</strong>
+    </p>
+  </li>
+</ul>
+
+</div>
+</div>
+<div id='disqus_thread'></div>
+<script type='text/javascript'>
+var disqus_shortname = 'crziter';
+(function() {
+var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+</section>
+<footer id='global-footer'>
+<div id='footer-content'>
+<p id='copyright'>
+Designed 2013 by
+<a href=''>crziter</a>
+</p>
+<p id='generate'>
+(generated on 29/08/2013 - 17:34 +0700 UTC)
+</p>
+</div>
+</footer>
+</div>
+</body>
+</html>
