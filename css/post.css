@@ -53,6 +53,10 @@
 	display: inline-block;
 	margin: 0px auto;
 	padding: 0px auto;
+	text-align: center;
+}
+
+.image-left {
 }
 
 .image-caption {
