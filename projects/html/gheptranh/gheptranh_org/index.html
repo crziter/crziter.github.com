@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Game xếp hình</title>
+	<meta charset="utf-8" >
+	
+	<style type="text/css">
+		#wrapper {
+			width: 700px;
+			margin: 0px auto;
+			text-align: center;
+		}
+		
+		#board {
+			margin: 0px;
+			padding: 0px;
+			border-width: 1px;
+			border-color: black;
+			border-style: solid;
+			background-color: yellow;
+			float: left;
+		}
+		
+		#control-board {
+			float: left;
+			margin-left: 20px;
+		}
+		
+		#btnShuffle {
+			width: 100%;
+		}
+		
+		#btnPlay {
+			width: 100%;
+		}
+		
+		#txtTime {
+			border-width: 0px;
+		}
+		
+		#txtStep {
+			border-width: 0px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+		var box_size = 80;
+		var box_border = 1;
+		var game_x = 4;
+		var game_y = 5;
+		
+		var box_img_w;
+		var box_img_h;
+		var image = new Image();
+		var part_need = new Array();
+		var part_current = new Array();
+		var part_blacked = new Pos(0, 5);
+		var game_id;
+		var canvas;
+		var ctx;
+		var add_sec_itv = 0;
+		var play_clicked = false;
+		var step = 0;
+		var min = 0;
+		var sec = 0;
+		
+		function addSec() {
+			sec++;
+			if (sec == 60) {
+				min++;
+				sec = 0;
+			}
+			
+			document.getElementById('txtTime').value = min + ':' + sec;
+		}
+		
+		function Pos(x, y) {
+			this.x = x;
+			this.y = y;
+		}
+		
+		function draw() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			var border_x_size = 0;
+			var border_y_size = 0;
+				
+			for(var i=0; i<20; ++i) {
+				try {
+					border_x_size = (part_current[i].x + 1) * box_border;
+				} catch(err) {
+					console.log(i);
+				}
+				border_y_size = (part_current[i].y + 1) * box_border;
+				
+				ctx.drawImage(image, 
+					part_need[i].x * box_img_w, 
+					image.height - (part_need[i].y + 1) * box_img_h, 
+					box_img_w, box_img_h,
+					part_current[i].x * box_size + border_x_size, 
+					canvas.height - (part_current[i].y + 1) * box_size - border_y_size,
+					box_size, box_size
+				);
+			}
+			
+			border_x_size = (part_blacked.x + 1) * box_border;
+			border_y_size = (part_blacked.y + 1) * box_border;
+			
+			ctx.fillStyle = "#FF0000";
+			ctx.fillRect(part_blacked.x * box_size + border_x_size, canvas.height - (part_blacked.y + 1) * box_size - border_y_size, box_size, box_size);
+			
+			ctx.fillStyle = "#FFFFFF";
+			ctx.fillRect(82, 0, canvas.width - 82, 81);
+		}
+		
+		function checkForWin() {
+			for(var i=0; i<20; ++i) {
+				if (part_need[i].x != part_current[i].x ||
+					part_need[i].y != part_current[i].y
+				)
+					return false;
+			}
+			
+			return true;
+		}
+		
+		function shuffle() {
+			var available_arr = new Array();
+			var k = 0;
+			for (var i=0; i<20; ++i) {
+				if (i != 16) {
+					available_arr[k] = i;
+					k++;
+				}
+			}
+			
+			k = 0;
+			for (var i=0; i<20; ++i) {
+				if (i == 16) {
+					part_current[16] = new Pos(part_need[16].x, part_need[16].y);
+					continue;
+				}
+				
+				var x;
+				if (available_arr.length <= 1) {
+					x = 0;
+				} else {
+					var x = Math.round(Math.random() * (available_arr.length - 1));
+				}
+				
+				part_current[i] = new Pos(part_need[available_arr[x]].x, part_need[available_arr[x]].y);
+				
+				var tmp_arr = new Array();
+				var k = 0;
+				for(var j=0; j<available_arr.length; ++j) {
+					if (j != x) {
+						tmp_arr[k] = available_arr[j];
+						k++;
+					}
+				}
+				
+				available_arr = []
+				for(var j=0; j<tmp_arr.length; ++j) {
+					available_arr[j] = tmp_arr[j];
+				}
+			}
+		}
+		
+		function click(e) {
+			if (!play_clicked) {
+				alert('Click Play to start game!');
+				return;
+			}
+			
+			var border_x_size = 0;
+			var border_y_size = 0;
+			
+			var X = e.clientX + document.body.scrollLeft - canvas.getBoundingClientRect().left;
+			var Y = e.clientY + document.body.scrollTop - canvas.getBoundingClientRect().top;
+			Y = canvas.height - Y;
+			
+			for(var i=0; i<20; ++i) {
+				border_x_size = (part_current[i].x + 1) * box_border;
+				border_y_size = (part_current[i].y + 1) * box_border;
+			
+				if (part_current[i].x * box_size + border_x_size <= X &&
+					(part_current[i].x + 1) * box_size + border_x_size >= X &&
+					part_current[i].y * box_size + border_y_size <= Y &&
+					(part_current[i].y + 1) * box_size + border_y_size >= Y
+				) {
+					console.log(i + ' => ' + part_current[i].x + ', ' + part_current[i].y);
+					if (((part_current[i].x == part_blacked.x) &&
+						(part_current[i].y == part_blacked.y - 1 || part_current[i].y == part_blacked.y + 1)) ||
+						((part_current[i].y == part_blacked.y) &&
+						(part_current[i].x == part_blacked.x - 1 || part_current[i].x == part_blacked.x + 1))
+					)
+					{
+						var tmp = new Pos(part_blacked.x, part_blacked.y);
+						part_blacked.x = part_current[i].x;
+						part_blacked.y = part_current[i].y;
+						part_current[i].x = tmp.x;
+						part_current[i].y = tmp.y;
+						
+						draw();
+						
+						if (checkForWin()) {
+							alert('You win!');
+							if (add_sec_itv > 0) {
+								clearInterval(add_sec_itv);
+								add_sec_itv = 0;
+							}
+						}
+					}
+				}
+			}
+			
+			step++;
+			document.getElementById('txtStep').value = step;
+		}
+		
+		function swap(i, j) {
+			var ri, rj;
+			for (var k=0; k<20; ++k) {
+				if (part_need[i].x == part_current[k].x && part_need[i].y == part_current[k].y) ri = k;
+				if (part_need[j].x == part_current[k].x && part_need[j].y == part_current[k].y) rj = k;
+			}
+			
+			var tmp = new Pos(part_current[ri].x, part_current[ri].y);
+			part_current[ri].x = part_current[rj].x;
+			part_current[ri].y = part_current[rj].y;
+			part_current[rj].x = tmp.x;
+			part_current[rj].y = tmp.y;
+			draw();
+		}
+		
+		function init() {
+			canvas = document.getElementById('board');
+			ctx = canvas.getContext('2d');
+			
+			image.src = '/pic.jpg';
+			image.onload = function() {
+				box_img_w = image.width / game_x;
+				box_img_h = image.height / game_y;
+				draw();
+			}
+			
+			for(var y=0; y<game_y; ++y) {
+				for (var x=0; x<game_x; ++x) {
+					part_need[y * game_x + x] = new Pos(x, y);
+				}
+			}
+			// part_need[20] = new Pos(0, 5);
+			shuffle();
+			
+			canvas.addEventListener("click", click, false);
+			document.getElementById('btnShuffle').onclick = function() {
+				shuffle();
+				draw();
+			}
+			
+			document.getElementById('btnPlay').onclick = function() {
+				document.getElementById('btnShuffle').disabled = true;
+				add_sec_itv = setInterval(function(){addSec();}, 1000);
+				play_clicked = true;
+			}
+		}
+	</script>
+</head>
+<body onload="init();">
+<div id="wrapper">
+	<canvas id="board" width="325px" height="487px"></canvas>
+	<div id="control-board">
+		<div><input id="btnShuffle" type="button" value="Shuffle" /></div>
+		<div><input id="btnPlay" type="button" value="Play" /> </div>
+		<div><span>Time: </span><input id="txtTime" value="--:--" /></div>
+		<div><span>Step: </span><input id="txtStep" value="0" /></div>
+		<div>Result:</div>
+		<image src="/pic.jpg" width="200px" />
+	</div>
+</div>
+</body>
+</html>
