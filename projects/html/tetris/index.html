@@ -372,7 +372,7 @@
 			game.createCurrent();
 			game.draw();
 			
-			jQuery(document).bind('keyup', function(e) {
+			jQuery(document).bind('keydown', function(e) {
 				var code = e.keyCode || e.which;
 
 				if (code == 90) { // z
